@@ -6,7 +6,7 @@
 
 @title[what]
 
-Monad is just a Monoid in the category of Endofunctors, what’s the problem?
+Monad is just a Monoid in the category of Endofunctors.
 ---
 ---
 
