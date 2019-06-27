@@ -25,8 +25,8 @@
 @title[get-name-again]
 
 ```
-function getFullName(person) {
-    return person.firtName + ' ' + person.lastName;
+function getAge(person) {
+    return person.age;
 }
 ```
 
@@ -43,14 +43,13 @@ function getFullName(person) {
 @title[get-name-again]
 
 ```
-type Person = { lastName: string, firstName: string };
-function getFullName(person: Null | Person) {
-    return person.firtName + ' ' + person.lastName;
+type Person = { age: number };
+function getAge(person: Null | Person) {
+    return person.age;
 }
 ```
 
 @css[text-blue fragment](So... maybe we have a person, maybe we don't. Now it is clear.)
----
 ---
 
 @title[get-name-again]
@@ -58,11 +57,81 @@ function getFullName(person: Null | Person) {
 Maybe we can...
 
 ```
-type Person = { lastName: string, firstName: string };
+type Person = { age: number };
 type Maybe<T> = Null | T;
-function getFullName(person: Maybe<Person>) {
-    return person.firtName + ' ' + person.lastName;
+function getAge(person: Maybe<Person>) {
+    return person.age;
+}
+```
+---
+@title[get-name-again]
+
+Maybe we can...
+
+```
+type Person = { age: number };
+type Maybe<T> = Null | T;
+function getAge(person: Maybe<Person>) {
+    if (person) {
+        return person.age;
+    } else {
+        return null; // well, we don't have an age dude.
+    }
 }
 ```
 
-@css[text-blue fragment](Better, but the if is still there)
+@css[text-blue fragment](Not so bad, does not explode. Easy to understand, I think I can go back to my planet now)
+---
+@title[get-name-again]
+
+@css[fragment](But wait a minute)
+@css[fragment](New wild requirement appeared... Need also to know if the guy is legally able to drink.)
+
+
+```
+type Person = { age: number };
+type Maybe<T> = Null | T;
+function getAge(person: Maybe<Person>) {
+    if (person) {
+        return person.age;
+    } else {
+        return null; // well, we don't have an age dude.
+    }
+}
+function canBuyBoozeByAge(person: Maybe<person>) {
+    const age = getAge(person);
+    return age ? age > 18 : false;
+}
+```
+
+@css[fragment](those ? are going to be everywhere)
+
+---
+```
+const getAge: = (person: Person) => person.age;
+
+function canBuyBoozeByAge(person: Null | Person) {
+    Maybe.of(Person)
+        .map(getAge)
+        .map(age > 18)
+        .valueOr(false);
+}
+```
+---
+
+If you are always passing around Maybe when a value can be null then you can simply do...
+
+```
+const getAge = (person: Person) => ;
+
+function canBuyBoozeByAge(person: Maybe<Person>) {
+    person.map(getAge).map((age) => age > 18).valueOr(false);
+}
+```
+---
+
+A few things to know about Functors
+
+* It's a container, a container never modifies its value.
+* transformation can be apply via `map`, it always return a new Functor.
+---
