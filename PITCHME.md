@@ -31,7 +31,7 @@ Known fact about Monads:
 ### The Maybe Monad
 
 @css[fragment](Maybe is... Maybe means...)
-@css[fragment](Basically, is says that a value can be there, or not.)
+@css[fragment](Basically, it means that a value can be there, or not.)
 
 ---
 
