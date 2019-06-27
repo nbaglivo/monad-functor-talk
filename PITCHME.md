@@ -6,7 +6,9 @@
 
 @title[what]
 
-Monad is just a Monoid in the category of Endofunctors.
+What's a Monad again?
+
+@css[fragment](Monad is just a Monoid in the category of Endofunctors.)
 ---
 ---
 
