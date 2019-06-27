@@ -4,6 +4,18 @@
 
 ---
 
+@title[what]
+
+Monad is just a Monoid in the category of Endofunctors, what’s the problem?
+---
+---
+
+@title[what]
+Known fact
+
+@css[fragment](When you finally understand Mondas, you’ll lose the ability to explain it to others)
+---
+
 @title[spec]
 
 ### Fantasy Land Specification
@@ -84,9 +96,11 @@ function getAge(person: Maybe<Person>) {
 ---
 @title[get-name-again]
 
-@css[fragment](But wait a minute)
-@css[fragment](New wild requirement appeared... Need also to know if the guy is legally able to drink.)
+@css[fragment](But wait a minute, new wild requirement appeared...)
+@css[fragment](Need also to know if the guy is legally able to drink)
 
+---
+@title[new-requirement]
 
 ```
 type Person = { age: number };
@@ -98,7 +112,7 @@ function getAge(person: Maybe<Person>) {
         return null; // well, we don't have an age dude.
     }
 }
-function canBuyBoozeByAge(person: Maybe<person>) {
+function canBuyBooze(person: Maybe<person>) {
     const age = getAge(person);
     return age ? age > 18 : false;
 }
@@ -110,7 +124,7 @@ function canBuyBoozeByAge(person: Maybe<person>) {
 ```
 const getAge: = (person: Person) => person.age;
 
-function canBuyBoozeByAge(person: Null | Person) {
+function canBuyBooze(person: Null | Person) {
     Maybe.of(Person)
         .map(getAge)
         .map(age > 18)
@@ -122,7 +136,7 @@ function canBuyBoozeByAge(person: Null | Person) {
 If you are always passing around Maybe when a value can be null then you can simply do...
 
 ```
-const getAge = (person: Person) => ;
+const getAge = (person: Person) => person.age;
 
 function canBuyBoozeByAge(person: Maybe<Person>) {
     person.map(getAge).map((age) => age > 18).valueOr(false);
@@ -132,6 +146,12 @@ function canBuyBoozeByAge(person: Maybe<Person>) {
 
 A few things to know about Functors
 
-* It's a container, a container never modifies its value.
-* transformation can be apply via `map`, it always return a new Functor.
----
+@ul
+
+- It's a container, a container never modifies its value. Cool
+
+- transformation can be apply via `map`, it always return a new Functor.
+
+- you can get its value at any time by using `value`
+
+@ulend
