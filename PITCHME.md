@@ -11,9 +11,9 @@ Monad is just a Monoid in the category of Endofunctors, what’s the problem?
 ---
 
 @title[what]
-Known fact
+Known fact about Monads:
 
-@css[fragment](When you finally understand Mondas, you’ll lose the ability to explain it to others)
+@css[fragment](When you finally understand it, you’ll lose the ability to explain it to others)
 ---
 
 @title[spec]
@@ -28,9 +28,10 @@ Known fact
 ---
 @title[the-what]
 
-### Maybe is... Maybe means...
+### The Maybe Monad
 
-@css[text-blue fragment](Basically, is says that a value can be there, or not.)
+@css[fragment](Maybe is... Maybe means...)
+@css[fragment](Basically, is says that a value can be there, or not.)
 
 ---
 
